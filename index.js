@@ -206,7 +206,7 @@ app.post("/login", function (req, res) {
             email: result.rows[0].email,
           });
         req.flash("success", "Login Succes");
-        res.redirect("/home");
+        res.redirect("/");
         console.log(data.user);
       } else {
         req.flash("danger", "Password Salah");
