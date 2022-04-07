@@ -36,10 +36,6 @@ app.use(
 // ];
 
 app.get("/", function (req, res) {
-  res.send("hello");
-});
-
-app.get("/home", function (req, res) {
   // console.log(projects);
 
   db.connect(function (err, client, done) {
@@ -135,7 +131,7 @@ app.post("/add-project", uploads.single("input-image"), function (req, res) {
         if (err) throw err;
         done();
 
-        res.redirect("/home"); // berpindah halaman ke route /blog
+        res.redirect("/"); // berpindah halaman ke route /blog
       }
     );
   });
@@ -223,7 +219,7 @@ app.post("/login", function (req, res) {
 app.get("/logout", function (req, res) {
   req.session.destroy();
 
-  res.redirect("/home");
+  res.redirect("/");
 });
 
 app.get("/edit-project/:id", function (req, res) {
@@ -264,7 +260,7 @@ app.post("/edit-project/:id", uploads.single("input-image"), function (req, res)
       function (err, result) {
         if (err) throw err;
 
-        res.redirect("/home"); // berpindah halaman ke route /blog
+        res.redirect("/"); // berpindah halaman ke route /blog
       }
     );
   });
@@ -318,7 +314,7 @@ app.get("/delete-project/:id", function (req, res) {
       if (err) throw err;
       done();
 
-      res.redirect("/home"); // berpindah halaman ke route /blog
+      res.redirect("/"); // berpindah halaman ke route /blog
     });
   });
 });
