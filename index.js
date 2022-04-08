@@ -3,7 +3,7 @@ const app = express();
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const flash = require("express-flash");
-const port = 8800;
+const port = process.env.PORT || 8800;
 
 const db = require("./connection/db");
 const uploads = require("./middlewares/fileUpload");
